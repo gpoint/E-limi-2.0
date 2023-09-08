@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aacassandra/vue3-progressbar": "^1.0.3",
     "axios": "^1.5.0",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
