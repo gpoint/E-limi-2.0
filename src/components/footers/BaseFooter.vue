@@ -139,7 +139,7 @@
             </div>
         </div>
         <hr class="horizontal light mb-4 mt-lg-4">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-lg-6 text-start">
                 <h6 class="text-white">Subscribe to our newsletters</h6>
                 <p class="text-white opacity-8 mb-lg-0 mb-3">The latest news, articles and resources sent to your inbox weekely.</p>
@@ -158,12 +158,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <hr class="horizontal light my-4">
         <div class="row">
             <div class="col-lg-6 col-md-6 my-auto">
                 <p class="text-white mb-0 opacity-8">
-                    Copyright © {{ new Date().getFullYear() }} Soft by Creative Tim.
+                    Copyright © {{ new Date().getFullYear() }} <strong><a class="text-white" href="https://e-limi.africa">E-limi Africa</a></strong>
                 </p>
             </div>
             <div class="col-lg-4 col-md-6  ms-auto text-end">
