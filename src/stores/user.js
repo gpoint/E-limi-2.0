@@ -1,14 +1,15 @@
 import { defineStore } from "pinia";
 
+import cookieUtils from "../utils/cookie.utils";
+
+const stringifiedUser = localStorage.getItem("user");
+
+const user = !!stringifiedUser ? JSON.parse(stringifiedUser) : {};
+
 export const useUserStore = defineStore("user", {
   state: () => ({
-    photoUrl: null,
-    firstName: null,
-    lastName: null,
-    email: null,
-    countryCode: null,
-    phone: null,
-    authorization: null,
+    ...user,
+    authorization: cookieUtils.seeCookie("authorization"),
   }),
   getters: {
     isLoggedIn: (state) => {
@@ -16,6 +17,10 @@ export const useUserStore = defineStore("user", {
     },
   },
   actions: {
-    clear: () => {},
+    logout() {
+      this.authorization = null;
+      localStorage.removeItem("user");
+      cookieUtils.eatCookie("authorization");
+    },
   },
 });
