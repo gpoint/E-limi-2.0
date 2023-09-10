@@ -108,7 +108,7 @@
                                 <h1 class="mt-0">
                                     <small>₦</small>5000
                                 </h1>
-                                <button type="button" class="btn bg-gradient-primary btn-lg mt-2">Get Access</button>
+                                <button type="button" class="btn bg-gradient-primary btn-lg mt-2">Get Unlimited Access</button>
                             </div>
                         </div>
                     </div>
