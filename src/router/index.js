@@ -1,5 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+
+import Me from "./me";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +8,10 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: () => import("../views/HomeView.vue"),
+      meta: {
+        authRequired: false,
+      },
     },
     {
       path: "/about",
@@ -16,6 +20,9 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/AboutView.vue"),
+      meta: {
+        authRequired: false,
+      },
     },
     {
       path: "/courses",
@@ -24,6 +31,9 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/CoursesView.vue"),
+      meta: {
+        authRequired: false,
+      },
     },
     {
       path: "/pricing",
@@ -32,6 +42,9 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/PricingView.vue"),
+      meta: {
+        authRequired: false,
+      },
     },
     {
       path: "/contact",
@@ -40,8 +53,102 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/ContactView.vue"),
+      meta: {
+        authRequired: false,
+      },
     },
+    {
+      path: "/register",
+      name: "register",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/RegisterView.vue"),
+      meta: {
+        authRequired: false,
+      },
+    },
+    {
+      path: "/login",
+      name: "login",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/LoginView.vue"),
+      meta: {
+        authRequired: false,
+      },
+    },
+    {
+      path: "/reset-password",
+      name: "reset-password",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/ResetPasswordView.vue"),
+      meta: {
+        authRequired: false,
+      },
+    },
+    {
+      path: "/me",
+      component: () => import("../views/Me/Index.vue"),
+      children: Me,
+      meta: {
+        authRequired: false,
+      },
+    },
+    ,
   ],
 });
 
-export default router
+const authRoutes = ["register", "login", "reset-password"];
+
+// const noAuthRoutes = [
+//   "home",
+//   "about",
+//   "pricing",
+//   "contact",
+//   "courses",
+//   "course",
+//   "contact",
+//   "terms-and-conditions",
+//   "privacy-policy",
+//   "faqs",
+// ];
+
+import { useUserStore } from "../stores/user";
+
+router.beforeEach((to, from, next) => {
+  const userStore = useUserStore();
+
+  const { isLoggedIn, authorization } = userStore;
+
+  // console.log(`User.isLoggedIn = ${isLoggedIn}`, authorization);
+
+  if (to.path == "/logout") {
+    userStore.logout();
+    return next("/login");
+  }
+
+  if (authRoutes.includes(to.name)) {
+    if (isLoggedIn) {
+      return next("/me/courses");
+    } else {
+      return next();
+    }
+  }
+
+  if (!to.meta.authRequired) {
+    return next();
+  }
+
+
+  if (isLoggedIn) {
+    return next();
+  } else {
+    return next("/login");
+  }
+});
+
+export default router;
