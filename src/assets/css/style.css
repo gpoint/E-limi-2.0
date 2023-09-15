@@ -17211,7 +17211,7 @@ fieldset:disabled .btn {
 .form-check:not(.form-switch) .form-check-input[type="checkbox"]:after {
   transition: opacity 0.25s ease-in-out;
   font-family: FontAwesome;
-  content: "\f00c";
+  content: "✔";
   width: 100%;
   height: 100%;
   color: #fff;
@@ -18862,7 +18862,7 @@ html {
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
-  font-family: Font Awesome\5 Free;
+  font-family: FontAwesome;
   font-weight: 700;
   content: "\f107";
   margin-left: auto;

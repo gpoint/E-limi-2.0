@@ -1,4 +1,7 @@
-import "./assets/style.css";
+import "./assets/css/nucleo-icons.css";
+import "./assets/css/nucleo-svg.css";
+import "./assets/css/fontawesome-all.min.css";
+import "./assets/css/style.css";
 
 import { createApp } from "vue";
 import { createPinia } from "pinia";
@@ -28,6 +31,6 @@ const progressBarOptions = {
   inverse: false,
 };
 
-app.use(VueProgressBar, progressBarOptions)
+app.use(VueProgressBar, progressBarOptions);
 
 app.mount("#app");
