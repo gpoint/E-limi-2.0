@@ -39,8 +39,8 @@ class AuthService {
   }
 
   async login(payload) {
-    
     let response;
+
     try {
       response = await axios.post(API_URL + "account/login?role=USER", {
         email: payload.email,
@@ -48,7 +48,9 @@ class AuthService {
         remember: payload.remember,
       });
     } catch (error) {
-      throw new Error(error.response.data.message);
+      throw new Error(
+        error.response ? error.response.data.message : error.message
+      );
     }
 
     const { data } = response;
@@ -67,22 +69,15 @@ class AuthService {
     cookieUtils.bakeCookie({
       name: "authorization",
       value: accessToken,
-      maxAge: !!payload.remember ? (60 * 60 * 24 * 183) : null,
+      maxAge: payload.remember ? 60 * 60 * 24 * 183 : null,
     });
 
     return user;
   }
 
-  logout() {
-    localStorage.removeItem("auth");
-    localStorage.removeItem("user");
-    localStorage.removeItem("accessToken");
-  }
-
   async register(payload) {
-    
     let response;
-    
+
     try {
       response = await axios.post(API_URL + "account/registration?role=USER", {
         firstName: payload.firstName,
@@ -92,7 +87,9 @@ class AuthService {
         confirmPassword: payload.confirmPassword,
       });
     } catch (error) {
-      throw new Error(error.response.data.message);
+      throw new Error(
+        error.response ? error.response.data.message : error.message
+      );
     }
 
     const { data } = response;
@@ -111,10 +108,72 @@ class AuthService {
     cookieUtils.bakeCookie({
       name: "authorization",
       value: accessToken,
-      maxAge: !!payload.remember ? 60 * 60 * 24 * 183 : null,
+      maxAge: 60 * 60 * 24 * 183,
     });
 
     return user;
+  }
+
+  async resetPassword(payload) {
+    let response;
+
+    try {
+      response = await axios.post(API_URL + "account/password-reset", {
+        email: payload.email,
+      });
+    } catch (error) {
+      throw new Error(
+        error.response ? error.response.data.message : error.message
+      );
+    }
+
+    const { data } = response;
+
+    return data;
+  }
+
+  async validateResetPasswordToken(token) {
+    let response;
+
+    try {
+      response = await axios.get(
+        API_URL + `account/password-reset?token=${token}`
+      );
+    } catch (error) {
+      throw new Error(
+        error.response ? error.response.data.message : error.message
+      );
+    }
+
+    const { data } = response;
+
+    return data;
+  }
+
+  async completeResetPassword(token, payload) {
+    let response;
+
+    try {
+      response = await axios.put(
+        API_URL + `account/password-reset?token=${token}`, {
+          password: payload.password,
+        }
+      );
+    } catch (error) {
+      throw new Error(
+        error.response ? error.response.data.message : error.message
+      );
+    }
+
+    const { data } = response;
+
+    return data;
+  }
+
+  logout() {
+    localStorage.removeItem("auth");
+    localStorage.removeItem("user");
+    localStorage.removeItem("accessToken");
   }
 }
 

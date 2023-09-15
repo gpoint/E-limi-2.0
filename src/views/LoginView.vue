@@ -3,10 +3,11 @@
     <section class="">
         <div class="page-header min-vh-100">
             <div class="container">
+                <img src="/img/logo.png" class="position-absolute top-0 mt-5" style="height: 75px; object-fit: contain;">
+
                 <div class="row">
                     <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
-                        <div class="card card-plain"> 
-                            <img src="/img/logo.png" style="height: 75px; object-fit: contain;">
+                        <div class="card card-plain">
 
                             <div class="card-header pb-0 text-left mt-5">
                                 <h4 class="font-weight-bolder">Sign In</h4>

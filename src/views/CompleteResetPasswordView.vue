@@ -10,28 +10,30 @@
                         <div class="card card-plain">
 
                             <div class="card-header pb-0 text-lef mt-5">
-                                <h4 class="font-weight-bolder">Reset password</h4>
-                                <p class="mb-0">You will receive a link in your e-mail within a few seconds.</p>
+                                <h4 class="font-weight-bolder">Complete Password Reset</h4>
+                                <p class="mb-0" v-if="displayForm">Enter and confirm your new password.</p>
                             </div>
                             <div class="card-body">
                                 <form-message :type="response.type" v-model:message="response.message"></form-message>
-                                <form @submit.prevent="reset">
+                                <form @submit.prevent="reset" v-if="displayForm">
                                     <div class="mb-3">
-                                        <input type="email" v-model="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
+                                        <input type="password" v-model="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="password" v-model="confirmPassword" class="form-control form-control-lg" placeholder="Confirm Password" aria-label="Confirm Password">
                                     </div>
                                     <div class="text-center">
-                                        <button type="submit" :disabled="loading || undefined" class="btn bg-gradient-primary btn-lg w-100 my-4">Send</button>
+                                        <button type="submit" :disabled="loading || undefined" class="btn bg-gradient-primary btn-lg w-100 my-4">Complete</button>
                                     </div>
                                 </form>
                             </div>
-                            <div class="card-footer pt-0">
-                                <p class="mb-4 text-sm mx-auto">
-                                    Don't have an account?
-                                    <RouterLink to="/register" class="text-primary text-gradient font-weight-bold">Sign up</RouterLink>
-                                </p>
+                            <div class="card-footer pt-0" v-if="!displayForm">
                                 <p class="mb-4 text-sm mx-auto">
                                     Have an account?
                                     <RouterLink to="/login" class="text-primary text-gradient font-weight-bold">Sign in</RouterLink>
+                                </p>
+                                <p class="mb-4 text-sm mx-auto mt-2">
+                                    <RouterLink to="/reset-password" class="text-primary text-gradient font-weight-bold">Forgot Password?</RouterLink>
                                 </p>
                             </div>
                         </div>
@@ -68,8 +70,10 @@ export default {
     },
     data() {
         return {
-            email: '',
+            password: '',
+            confirmPassword: '',
             loading: false,
+            displayForm: false,
             response: {
                 message: '',
                 type: 'danger'
@@ -78,23 +82,33 @@ export default {
     },
     methods: {
         async reset() {
+            if (this.password !== this.confirmPassword) {
+                this.response = {
+                    message: '<strong>Passwords do not Match!</strong>',
+                    type: 'danger',
+                };
+                return;
+            }
+
             this.$Progress.start();
             this.loading = true;
 
             try {
 
+                const { t: token } = this.$route.query
+            
                 const payload = {
-                    email: this.email
+                    password: this.password,
                 };
 
-                const response = await AuthenticationService.resetPassword(payload);
+                const response = await AuthenticationService.completeResetPassword(token, payload);
 
                 this.response = {
                     message: `<strong>${response.message}</strong>`,
                     type: 'success',
                 };
-                
-                this.email = '';
+
+                this.displayForm = false;
             } catch (error) {
                 this.response = {
                     message: `<strong>Error! ${error.message}</strong>`,
@@ -106,5 +120,24 @@ export default {
             this.$Progress.finish();
         },
     },
+    async mounted() {
+        try {
+            const { t: token } = this.$route.query
+
+            if (!token) {
+                throw new Error('Missing or invalid token')
+            }
+            
+            const response = await AuthenticationService.validateResetPasswordToken(token);
+            
+            this.displayForm = true;
+        } catch (error) {
+            this.displayForm = false;
+            this.response = {
+                message: `<strong>Error! ${error.message}`,
+                type: 'danger'
+            }
+        }
+    }
 };
 </script>

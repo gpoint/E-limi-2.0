@@ -91,18 +91,34 @@ const router = createRouter({
       },
     },
     {
+      path: "/password-reset",
+      name: "complete-reset-password",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/CompleteResetPasswordView.vue"),
+      meta: {
+        authRequired: false,
+      },
+    },
+    {
       path: "/me",
       component: () => import("../views/Me/Index.vue"),
       children: Me,
       meta: {
-        authRequired: false,
+        authRequired: true,
       },
     },
     ,
   ],
 });
 
-const authRoutes = ["register", "login", "reset-password"];
+const authRoutes = [
+  "register",
+  "login",
+  "reset-password",
+  "complete-reset-password",
+];
 
 // const noAuthRoutes = [
 //   "home",

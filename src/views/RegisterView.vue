@@ -1,13 +1,14 @@
 <template>
 <div>
-    <!-- <base-nav></base-nav> -->
     <section class="">
         <div class="page-header min-vh-100">
             <div class="container">
+                <img src="/img/logo.png" class="position-absolute top-0 mt-5" style="height: 75px; object-fit: contain;">
+                
                 <div class="row">
                     <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
                         <div class="card card-plain">
-                            <img src="/img/logo.png" style="height: 75px; object-fit: contain;">
+                            <!-- <img src="/img/logo.png" style="height: 75px; object-fit: contain;"> -->
 
                             <div class="card-header pb-0 text-left mt-5">
                                 <h4 class="font-weight-bolder">Sign Up</h4>
@@ -22,7 +23,7 @@
                                             <input type="text" v-model="this.firstName" class="form-control" placeholder="First Name" required aria-label="Name">
                                         </div>
                                         <div class="mb-3 col-6">
-                                            <input type="text" v-model="this.lastName" class="form-control" placeholder="Last Name" aria-label="Name">
+                                            <input type="text" v-model="this.lastName" class="form-control" placeholder="Last Name" required aria-label="Name">
                                         </div>
                                     </div>
                                     <label>Email</label>
@@ -38,7 +39,7 @@
                                         <input type="password" v-model="this.confirmPassword" class="form-control" placeholder="Confirm Password" required aria-label="Password">
                                     </div>
                                     <div class="form-check form-check-info text-left">
-                                        <input type="checkbox" class="form-check-input" required value id="flexCheckDefault" checked>
+                                        <input type="checkbox" class="form-check-input" required value id="flexCheckDefault">
                                         <label class="form-check-label" for="flexCheckDefault">
                                             I agree the <a href="../../pages/privacy.html" class="text-dark font-weight-bolder">Terms and Conditions</a>
                                         </label>
@@ -80,14 +81,12 @@
 </template>
 
 <script>
-import BaseNav from '../components/navbars/BaseNav.vue';
 import BaseFooter from '../components/footers/BaseFooter.vue';
 import FormMessage from '../components/FormMessage.vue';
 import AuthenticationService from '../services/authentication';
 
 export default {
     components: {
-        BaseNav,
         BaseFooter,
         FormMessage
     },
@@ -107,10 +106,13 @@ export default {
     },
     methods: {
         async register() {
+            this.loading = true;
+            this.$Progress.start();
+                
             try {
-
-                this.loading = true;
-                this.$Progress.start();
+                if (this.password !== this.confirmPassword) {
+                    throw new Error('Passwords do not match');
+                }
 
                 const payload = {
                     firstName: this.firstName,
