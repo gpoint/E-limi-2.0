@@ -1,6 +1,4 @@
-# app
-
-This template should help get you started developing with Vue 3 in Vite.
+# E-limi 2.0
 
 ## Recommended IDE Setup
 
