@@ -1,9 +1,9 @@
 <template>
 <div>
     <div readonly class="mb-3 text-light btn-block p-2" :class="'alert-' + type" :style=" style " v-if="message != '' && message != null" @click="update" style="font-size: 0.775rem;border-radius:5px;">
-        <i class="fa fa-times float-end my-1 text-danger bg-white" style="height:17px;width:17px;border-radius:100%;padding:2px 0 0 4px;">
+        <strong class="float-end my-1 text-center bg-white" :class="`text-${type}`" style="height:17px;width:17px;font-size:17px;line-height:15px;border-radius:100%;">
             &times;
-        </i>
+        </strong>
         <span class="text-white" v-html="message"></span>
     </div>
 </div>
