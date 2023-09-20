@@ -21,25 +21,20 @@
                 </li>
 
                 <li class="nav-item mx-2">
-                    <RouterLink to="/about" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
-                        About Us
-                    </RouterLink>
-                </li>
-                <li class="nav-item mx-2">
                     <RouterLink to="/courses" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
                         Courses
                     </RouterLink>
                 </li>
 
                 <li class="nav-item mx-2">
-                    <RouterLink to="/pricing" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
-                        Pricing
+                    <RouterLink to="/programmes" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
+                        Programmes
                     </RouterLink>
                 </li>
 
                 <li class="nav-item mx-2">
-                    <RouterLink to="/contact" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
-                        Contact Us
+                    <RouterLink to="/pricing" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
+                        Pricing
                     </RouterLink>
                 </li>
             </ul>
