@@ -8,25 +8,25 @@
                 <h6 class="text-white text-sm">Company</h6>
                 <ul class="flex-column ms-n3 nav">
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Marketing
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Analytics
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Commerce
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Insights
                         </a>
                     </li>
@@ -36,25 +36,25 @@
                 <h6 class="text-white text-sm">Support</h6>
                 <ul class="flex-column ms-n3 nav">
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Pricing
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Docs
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Guides
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             API Suport
                         </a>
                     </li>
@@ -64,31 +64,31 @@
                 <h6 class="text-white text-sm">Pages</h6>
                 <ul class="flex-column ms-n3 nav">
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com/presentation" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="//presentation" target="_blank">
                             About
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com/blog" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="//blog" target="_blank">
                             Blog
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Jobs
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Press
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com/affiliates/new" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="//affiliates/new" target="_blank">
                             Affiliates
                         </a>
                     </li>
@@ -98,17 +98,17 @@
                 <h6 class="text-white text-sm">Legal</h6>
                 <ul class="flex-column ms-n3 nav">
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Claim
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Privacy
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white opacity-8" href="https://www.creative-tim.com" target="_blank">
+                        <a class="nav-link text-white opacity-8" href="/" target="_blank">
                             Terms
                         </a>
                     </li>

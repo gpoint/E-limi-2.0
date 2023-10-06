@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-lg-5 d-flex">
                                 <div class="bg-gradient-primary my-lg-3 ms-lg-3 border-radius-md">
-                                    <img src="img/shapes/waves-white.svg" alt="pattern-lines" class="position-absolute start-0 top-0 h-100 opacity-6">
+                                    <img src="/img/shapes/waves-white.svg" alt="pattern-lines" class="position-absolute start-0 top-0 h-100 opacity-6">
                                     <div class="card-body p-5 position-relative">
                                         <h3 class="text-white">Contact Information</h3>
                                         <p class="text-white opacity-8 mb-4">Fill up the form and our Team will get back to you within 24 hours.</p>

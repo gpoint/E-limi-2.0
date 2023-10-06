@@ -269,7 +269,7 @@
                                 Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
                             </p>
                             <div class="author align-items-center">
-                                <img src="../../assets/img/team-2.jpg" alt="..." class="avatar shadow">
+                                <!-- <img src="/img/team-2.jpg" alt="..." class="avatar shadow"> -->
                                 <div class="name ps-3">
                                     <span>Mathew Glock</span>
                                     <div class="stats">
@@ -297,7 +297,7 @@
                                 Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
                             </p>
                             <div class="author align-items-center">
-                                <img src="../../assets/img/ivana-square.jpg" alt="..." class="avatar shadow">
+                                <!-- <img src="/img/ivana-square.jpg" alt="..." class="avatar shadow"> -->
                                 <div class="name ps-3">
                                     <span>Chriss Smahos</span>
                                     <div class="stats">
@@ -325,7 +325,7 @@
                                 Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
                             </p>
                             <div class="author align-items-center">
-                                <img src="../../assets/img/marie.jpg" alt="..." class="avatar shadow">
+                                <!-- <img src="/img/marie.jpg" alt="..." class="avatar shadow"> -->
                                 <div class="name ps-3">
                                     <span>Elijah Miller</span>
                                     <div class="stats">

@@ -2449,6 +2449,7 @@ textarea.form-control-sm {
 }
 .form-check-input[type="radio"] {
   border-radius: 50%;
+  border: 1px solid orange;
 }
 .form-check-input:active {
   filter: brightness(99%);
@@ -2464,7 +2465,7 @@ textarea.form-control-sm {
 }
 .form-check-input:checked[type="checkbox"],
 .form-check-input:checked[type="radio"] {
-  background-image: linear-gradient(310deg, #271d14, #673804);
+  background-image: linear-gradient(310deg, #77132b, #ffae00);
 }
 .form-check-input[type="checkbox"]:indeterminate {
   background-color: #77132b;
@@ -2770,7 +2771,7 @@ textarea.form-control-sm {
   > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(
     .valid-feedback
   ):not(.invalid-tooltip):not(.invalid-feedback) {
-  margin-left: -1px;
+  margin-left: -6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
